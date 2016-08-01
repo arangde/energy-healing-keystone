@@ -1,0 +1,38 @@
+<%
+pageTitle = "Video screen"
+%>
+<% include ../layouts/top.ejs %>
+<% include ../layouts/header.ejs %>
+
+<section class="section section--black">
+  <div class="container">
+    <div class="videodetailbox">
+      <div class="video-one need-decode"><%= post.content %></div>
+      <p class="video-title"><span class="yellow">LESSON <%= post.lessonNumber %>:</span>  <%= post.title %></p>
+      <p class="video-desc"><%= post.healingMode %>  ·  <%= post.healer.name.full %><i class="fa fa-clock-o"></i> <%= post.duration %>M</p>
+    </div>
+  </div>
+</section>
+<section class="section section--cog">
+  <div class="container">
+    <div class="biobox">
+      <h1 class="title"><%= post.healer.name.full %></h1>
+      <p class="need-decode"><%= post.healer.content %></p>
+      <ul>
+        <li>
+          <h3 class="orange">In this lesson, you will learn:</h3>
+          <p class="need-decode"><%= post.description %></p>
+        </li>
+        <% if(post.download && post.download != "") { %>
+          <li>
+            <h3 class="orange">To download video click below and then click on download button above the new video screen:</h3>
+            <p><a href="<%= post.download %>" target="_blank">Click here to download</a></p>
+          </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<% include ../layouts/footer.ejs %>
+<% include ../layouts/bottom.ejs %>
