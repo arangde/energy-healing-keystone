@@ -5,7 +5,9 @@ var keystone = require('keystone');
  * ==================
  */
 
-var PostCategory = new keystone.List('PostCategory');
+var PostCategory = new keystone.List('PostCategory', {
+	autokey: { path: 'slug', from: 'name', unique: true },
+});
 
 PostCategory.add({
 	name: { type: String, required: true },

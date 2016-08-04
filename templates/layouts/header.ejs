@@ -9,7 +9,7 @@
           <ul class="dropdown-menu row">
             <li class="col-sm-12"><a href="/lessons">All Classes</a></li>
             <% categories.forEach(function(category, i) { %>
-              <li class="col-sm-6"><a href="/lessons/<%= category._id.toString() %>/<%= encodeURIComponent(category.name) %>"><%= category.name %></a></li>
+              <li class="col-sm-6"><a href="/lessons/<%= category._id.toString() %>/<%= category.slug %>"><%= category.name %></a></li>
             <% }); %>
           </ul>
         </li>
@@ -19,9 +19,6 @@
       <ul class="nav navbar-nav navbar-right">
         <% if (user) { %>
           <li><strong><%= user.name.full %></strong></li>
-          <% if (user.canAccessKeystone) { %>
-            <a href="/keystone">Admin</a>
-          <% } %>
           <li><a href="/keystone/signout">SIGN OUT</a></li>
         <% } else { %>
           <li><a href="/greeter">Login</a></li>

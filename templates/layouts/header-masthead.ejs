@@ -3,10 +3,10 @@
     <div class="userinfo">
       <% if (user) { %>
         <strong><%= user.name.full %></strong>
+        <a href="/keystone/signout">SIGN OUT</a>
         <% if (user.canAccessKeystone) { %>
           <a href="/keystone">Admin</a>
-        <% } %>  
-        <a href="/keystone/signout">SIGN OUT</a>
+        <% } %>
       <% } else { %>
         <a href="/greeter">Login</a>
       <% } %>

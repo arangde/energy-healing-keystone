@@ -17,21 +17,22 @@ pageTitle = "What we recommend for you"
               <div class="classbox">
                 <div class="video need-decode"><%= post.content %></div>
                 <p class="video-title">
-                  <a href="/lesson/<%= post._id.toString() %>/<%= encodeURIComponent(post.title) %>" class="need-decode"><%= post.title %></a>
+                  <a href="/lesson/<%= post._id.toString() %>/<%= post.slug %>" class="need-decode"><%= post.title %></a>
                 </p>
                 <span class="video-desc">
                   <%= post.healingMode %>  ·  <%= post.healer.name.full %><i class="fa fa-clock-o"></i> <%= post.duration %>M
                 </span>
                 <p class="video-mode">
-                  <% if(post.mode == 'Meditation') { %>
+                  <% if(post.tag == 'Meditation') { %>
                     <span class="video-mode-orange">Meditation</span>
-                  <% } else if(post.mode =='Exercise') { %>
+                  <% } else if(post.tag =='Exercise') { %>
                     <span class="video-mode-blue">Exercise</span>
-                  <% } else if(post.mode == 'Fireside Chat') { %>
+                  <% } else if(post.tag == 'Fireside Chat') { %>
                     <span class="video-mode-black">Fireside Chat</span>
-                  <% } else if(post.mode == 'Meditation/Exercise') { %>
+                  <% } else if(post.tag == 'Meditation/Exercise') { %>
                     <span class="video-mode-pink">Meditation/Exercise</span>
-                  <% } else { %>
+                  <% } %>
+                  <% if(post.secondTag == 'Kid Friendly') { %>
                     <span class="video-mode-green">Kid Friendly</span>
                   <% } %>
                 </p>

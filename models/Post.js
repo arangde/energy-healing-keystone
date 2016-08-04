@@ -23,12 +23,16 @@ Post.add({
 	lessonNumber: { type: Types.Number },
 	duration: { type: Types.Number },
 	healingMode: { type: Types.Text },
-	mode: { type: Types.Select, options: 'Meditation, Exercise, Fireside Chat, Meditation/Exercise, Kid Friendly'},
-	links: { type: Types.Textarea },
-	download: { type: Types.Text },
+	tag: { type: Types.Select, options: 'Meditation, Exercise, Fireside Chat, Meditation/Exercise, Kid Friendly'},
+	secondTag: { type: Types.Select, options: 'Kid Friendly'},
+	downloads: {
+		video: { type: Types.Textarea },
+		audioOnly: { type: Types.Textarea },
+		additionalMaterials: { type: Types.Textarea }
+	},
 	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
 	image: { type: Types.CloudinaryImage }
 });
 
-Post.defaultColumns = 'title|40%, lessonNumber, healer, segment, mode, state';
+Post.defaultColumns = 'title|40%, lessonNumber, healer, segment, tag, state';
 Post.register();

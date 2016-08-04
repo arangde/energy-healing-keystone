@@ -8,7 +8,7 @@ pageTitle = "Video screen"
   <div class="container">
     <div class="videodetailbox">
       <div class="video-one need-decode"><%= post.content %></div>
-      <p class="video-title"><span class="yellow">LESSON <%= post.lessonNumber %>:</span>  <%= post.title %></p>
+      <p class="video-title"><%= post.title %></p>
       <p class="video-desc"><%= post.healingMode %>  ·  <%= post.healer.name.full %><i class="fa fa-clock-o"></i> <%= post.duration %>M</p>
     </div>
   </div>
@@ -16,20 +16,24 @@ pageTitle = "Video screen"
 <section class="section section--cog">
   <div class="container">
     <div class="biobox">
-      <h1 class="title"><%= post.healer.name.full %></h1>
-      <p class="need-decode"><%= post.healer.content %></p>
-      <ul>
-        <li>
-          <h3 class="orange">In this lesson, you will learn:</h3>
-          <p class="need-decode"><%= post.description %></p>
-        </li>
-        <% if(post.download && post.download != "") { %>
+      <h1 class="title">Description</h1>
+      <p class="need-decode"><%= post.description %></p>
+      <% if(post.downloads.video || post.downloads.audioOnly || post.downloads.additionalMaterials) { %>
+        <ul>
           <li>
-            <h3 class="orange">To download video click below and then click on download button above the new video screen:</h3>
-            <p><a href="<%= post.download %>" target="_blank">Click here to download</a></p>
+            <h3 class="orange">For More Info Click on the Below Link(s):</h3>
+            <% if(post.downloads.video) { %>
+              <p>To Download Video <a href="<%= post.downloads.video %>" target="_blank">Click Here</a></p>
+            <% } %>
+            <% if(post.downloads.audioOnly) { %>
+              <p>To Download Audio Only <a href="<%= post.downloads.audioOnly %>" target="_blank">Click Here</a></p>
+            <% } %>
+            <% if(post.downloads.additionalMaterials) { %>
+              <p>To Download Additional Materials For Class <a href="<%= post.downloads.additionalMaterials %>" target="_blank">Click Here</a></p>
+            <% } %>
           </li>
-        <% } %>
-      </ul>
+        </ul>
+      <% } %>
     </div>
   </div>
 </section>

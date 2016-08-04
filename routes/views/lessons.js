@@ -14,7 +14,7 @@ exports = module.exports = {
 
 		view.on('init', function (next) {
 
-			var q = keystone.list('Post').model.find().populate('healer');
+			var q = keystone.list('Post').model.find().sort({"lessonNumber": 1}).populate('healer');
 
 			q.exec(function (err, results) {
 				locals.posts = results;
@@ -50,7 +50,7 @@ exports = module.exports = {
 
 		view.on('init', function (next) {
 
-			var q = keystone.list('Post').model.find().where('categories').in([categoryId]).populate('healer');
+			var q = keystone.list('Post').model.find().where('categories').in([categoryId]).sort({"lessonNumber": 1}).populate('healer');
 
 			q.exec(function (err, results) {
 				locals.posts = results;
@@ -98,7 +98,7 @@ exports = module.exports = {
 		// Load other posts
 		view.on('init', function (next) {
 
-			var q = keystone.list('Post').model.find().where('plans').in([req.params.planId]).populate('healer');
+			var q = keystone.list('Post').model.find().where('plans').in([req.params.planId]).sort({"lessonNumber": 1}).populate('healer');
 
 			q.exec(function (err, results) {
 				locals.posts = results;
