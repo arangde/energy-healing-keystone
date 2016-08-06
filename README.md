@@ -26,3 +26,5 @@ $ npm install
 ####Run
 
 $ node keystone
+
+(login/signup module should be updated in local, /node_modules/keystone-greeter/public/snowpi)
