@@ -22,7 +22,15 @@ pageTitle = "Classes"
           <% posts.forEach(function(post, i) { %>
             <li class="col-md-4 col-sm-6">
               <div class="classbox">
-                <div class="video need-decode"><%= post.content %></div>
+                <a href="/lesson/<%= post._id.toString() %>/<%= post.slug %>">
+                  <div class="video">
+                    <% if(post.image && post.image.url != undefined) { %>
+                      <img src="<%= post.image.url %>" />
+                    <% } else { %>
+                      <img src="/images/empty.png" />
+                    <% } %>
+                  </div>
+                </a>
                 <p class="video-title">
                   <a href="/lesson/<%= post._id.toString() %>/<%= post.slug %>" class="need-decode"><%= post.title %></a>
                 </p>

@@ -18,7 +18,7 @@ pageTitle = "Video screen"
     <div class="biobox">
       <h1 class="title">Description</h1>
       <p class="need-decode"><%= post.description %></p>
-      <% if(post.downloads.video || post.downloads.audioOnly || post.downloads.additionalMaterials) { %>
+      <% if(post.downloads.video || post.downloads.audioOnly || post.downloads.additionalMaterials || post.downloads.transcript || post.downloads.youtube) { %>
         <ul>
           <li>
             <h3 class="orange">For More Info Click on the Below Link(s):</h3>
@@ -29,7 +29,13 @@ pageTitle = "Video screen"
               <p>To Download Audio Only <a href="<%= post.downloads.audioOnly %>" target="_blank">Click Here</a></p>
             <% } %>
             <% if(post.downloads.additionalMaterials) { %>
-              <p>To Download Additional Materials For Class <a href="<%= post.downloads.additionalMaterials %>" target="_blank">Click Here</a></p>
+              <p>To Download Class Materials <a href="<%= post.downloads.additionalMaterials %>" target="_blank">Click Here</a></p>
+            <% } %>
+            <% if(post.downloads.transcript) { %>
+              <p>To Download Transcript <a href="<%= post.downloads.transcript %>" target="_blank">Click Here</a></p>
+            <% } %>
+            <% if(post.downloads.youtube) { %>
+              <p>To Watch on Youtube <a href="<%= post.downloads.youtube %>" target="_blank">Click Here</a></p>
             <% } %>
           </li>
         </ul>

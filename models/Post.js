@@ -28,7 +28,9 @@ Post.add({
 	downloads: {
 		video: { type: Types.Textarea },
 		audioOnly: { type: Types.Textarea },
-		additionalMaterials: { type: Types.Textarea }
+		additionalMaterials: { type: Types.Textarea },
+		transcript: { type: Types.Textarea },
+		youtube: { type: Types.Textarea }
 	},
 	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
 	image: { type: Types.CloudinaryImage }

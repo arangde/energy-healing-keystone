@@ -7,7 +7,7 @@ pageTitle = "What we recommend for you"
 <section class="section section--yellow">
   <div class="container wide">
     <div class="recommendbox">
-      <h1 class="title hide">What we recommend for you</h1>
+      <h1 class="title">What we recommend for you</h1>
       <img class="title" src="/images/text-recommend.png" alt="" />
       <div class="divider"></div>
       <div class="row">
@@ -15,7 +15,13 @@ pageTitle = "What we recommend for you"
           <% posts.forEach(function(post, i) { %>
             <li class="col-md-4 col-sm-6">
               <div class="classbox">
-                <div class="video need-decode"><%= post.content %></div>
+                <div class="video">
+                  <% if(post.image && post.image.url != undefined) { %>
+                    <img src="<%= post.image.url %>" />
+                  <% } else { %>
+                    <img src="/images/empty.png" />
+                  <% } %>
+                </div>
                 <p class="video-title">
                   <a href="/lesson/<%= post._id.toString() %>/<%= post.slug %>" class="need-decode"><%= post.title %></a>
                 </p>

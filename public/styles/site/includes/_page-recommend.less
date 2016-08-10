@@ -12,10 +12,22 @@
       text-align: left;
       height: 302px;
       .video {
+        position: relative;
         margin-bottom: 8px;
-        iframe {
+        overflow: hidden;
+        max-height: 166px;
+        img {
           width: 100%;
-          max-height: 166px;
+          height: auto;
+        }
+        &:after {
+          content: '';
+          position: absolute;
+          display: block;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background: url('../images/play.png') no-repeat center center;
         }
       }
       .video-title {
