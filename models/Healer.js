@@ -8,6 +8,7 @@ var Types = keystone.Field.Types;
 
 var Healer = new keystone.List('Healer', {
 	autokey: { from: 'name', path: 'key', unique: true },
+	defaultSort: 'name'
 });
 
 Healer.add({

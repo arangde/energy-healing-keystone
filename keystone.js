@@ -13,6 +13,7 @@ var engine = require('ejs-locals');
 keystone.init({
 	'name': 'Energy Healing',
 	'brand': 'Energy Healing',
+	'port': 3000,
 
 	'less': 'public',
 	'static': 'public',

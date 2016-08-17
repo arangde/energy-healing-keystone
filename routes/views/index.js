@@ -89,7 +89,7 @@ exports = module.exports = {
 		// Load other posts
 		view.on('init', function (next) {
 
-			var q = keystone.list('Healer').model.find();
+			var q = keystone.list('Healer').model.find().sort('name');
 
 			q.exec(function (err, results) {
 				locals.healers = results;
